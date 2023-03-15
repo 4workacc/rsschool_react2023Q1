@@ -1,13 +1,11 @@
 import React from 'react';
-import './App.scss'
+import './App.scss';
 import MainPage from '../../Pages/MainPage';
 
 export default function App() {
   return (
     <div className="App">
-      <MainPage /> 
+      <MainPage />
     </div>
-  )
+  );
 }
-
-
