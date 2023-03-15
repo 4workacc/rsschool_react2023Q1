@@ -1,3 +1,23 @@
-* {
-    
+.SearchBar {
+    width: 500px;
+    height: 100px;
+
+    margin: 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    & input {
+        height: 30px;
+        width: 350px;
+
+        border-radius: 10px;
+
+        font: 15px Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+     
+        background: url(../../assets/glass.png) no-repeat scroll 7px 7px;
+        padding-left: 40px;
+    }
 }
