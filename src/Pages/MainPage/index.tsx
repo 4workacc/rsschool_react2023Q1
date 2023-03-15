@@ -1,5 +1,5 @@
-import Card from '../../components/Card';
-import SearchBar from '../../components/SearchBar';
+import Card from '../../components/Card/Card';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import React from 'react';
 
 import './index.scss';
