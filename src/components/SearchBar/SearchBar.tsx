@@ -1,11 +1,11 @@
-
 import React from 'react';
 import './SearchBar.scss';
 
 type Props = {
   pros?: number;
-  onChange?(): void
+  onChange?(): void;
 };
+
 type SearchType = {
   searchText: string;
 };
@@ -17,24 +17,23 @@ class SearchBar extends React.Component<Props, SearchType> {
       searchText: '',
     };
   }
-  // componentWillUnmount(): void {
-  //   localStorage.setItem('searchText', this.state.searchText);
-  //   alert(this.state.searchText);
-  // }
-
-  // componentDidMount(): void {
-  //   this.setState({ searchText: localStorage.getItem('searchText') || '' });
-  // }
+  componentWillUnmount(): void {
+    localStorage.setItem('searchText', this.state.searchText);
+  }
+  componentDidMount(): void {
+    this.setState({ searchText: localStorage.getItem('searchText')! });
+  }
   inputHandler = (e: React.FormEvent<HTMLInputElement>) => {
     this.setState({ searchText: e.currentTarget.value });
-    console.log(this.state.searchText);
+    localStorage.setItem('searchText', this.state.searchText);
   };
+
   render() {
     return (
       <div className="SearchBar">
         <input
           type="text"
-          placeholder='ENTER_SEARCH_PARAMETER'
+          placeholder="ENTER_SEARCH_PARAMETER"
           onChange={(e) => {
             this.inputHandler(e);
           }}
