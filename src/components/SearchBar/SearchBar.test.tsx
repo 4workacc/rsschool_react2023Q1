@@ -1,5 +1,5 @@
 import React from 'react';
-import {describe, test, expect, beforeEach, vi} from 'vitest';
+import {describe, test, expect, beforeEach, vi, afterAll} from 'vitest';
 import {render, RenderResult, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import SearchBar from './SearchBar';
@@ -25,5 +25,10 @@ describe("SearchBar test", () => {
     test("On change test", async ()=>{
         await userEvent.type(input, 'aasd');
         expect(input.value).toContain('aasd');
+    }),
+    afterAll(()=>{
+        vi.clearAllMocks();
+        vi.resetAllMocks();
     })
+
 })
