@@ -4,6 +4,7 @@ import './SearchBar.scss';
 
 type Props = {
   pros?: number;
+  onChange?(): void
 };
 type SearchType = {
   searchText: string;
