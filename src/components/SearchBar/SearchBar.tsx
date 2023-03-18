@@ -17,29 +17,25 @@ class SearchBar extends React.Component<Props, SearchType> {
       searchText: '',
     };
   }
-
-  componentGracefulUnmount(){
+  componentWillUnmount(): void {
     localStorage.setItem('searchText', this.state.searchText);
-    window.removeEventListener('beforeunload', this.componentGracefulUnmount);
   }
-
-  componentWillUnmount(): void {    
-    this.componentGracefulUnmount(); 
-  }
-  componentDidMount(): void {    
+  componentDidMount(): void {
     this.setState({ searchText: localStorage.getItem('searchText')! });
   }
   inputHandler = (e: string) => {
-    this.setState((prevState) => { 
+    this.setState((prevState) => {
       return {
         ...prevState,
-        searchText: e} 
-    });    
+        searchText: e,
+      };
+    });
+    localStorage.setItem('searchText', e);
   };
 
   render() {
     return (
-      <div className="SearchBar">        
+      <div className="SearchBar">
         <input
           type="text"
           placeholder="ENTER_SEARCH_PARAMETER"
@@ -48,7 +44,7 @@ class SearchBar extends React.Component<Props, SearchType> {
           }}
           value={this.state.searchText}
         />
-        <button>{this.state.searchText}</button>
+        <button>SEARCH</button>
       </div>
     );
   }
