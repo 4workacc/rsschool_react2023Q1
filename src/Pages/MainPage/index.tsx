@@ -8,14 +8,14 @@ type Props = {
   pros?: number;
 };
 
-type Card = {
+type TCard = {
   title: string;
   img: string;
   price: number;
 };
 
 type Cards = {
-  cards: Card[];
+  cards: TCard[];
 };
 
 class MainPage extends React.Component<Props, Cards> {
@@ -28,6 +28,56 @@ class MainPage extends React.Component<Props, Cards> {
           img: 'qwe',
           price: 1,
         },
+        {
+          title: 'QWE1',
+          img: 'qwe1',
+          price: 2,
+        },
+        {
+          title: 'QWE2',
+          img: 'qwe2',
+          price: 3,
+        },
+        {
+          title: 'QWE3',
+          img: 'qwe3',
+          price: 4,
+        },
+        {
+          title: 'QWE4',
+          img: 'qwe4',
+          price: 4,
+        },
+        {
+          title: 'QWE5',
+          img: 'qwe5',
+          price: 6,
+        },
+        {
+          title: 'QWE6',
+          img: 'qwe6',
+          price: 6,
+        },
+        {
+          title: 'QWE6',
+          img: 'qwe6',
+          price: 6,
+        },
+        {
+          title: 'QWE7',
+          img: 'qwe7',
+          price: 7,
+        },
+        {
+          title: 'QWE8',
+          img: 'qwe8',
+          price: 8,
+        },
+        {
+          title: 'QWE9',
+          img: 'qwe9',
+          price: 9,
+        },
       ],
     };
   }
@@ -37,16 +87,12 @@ class MainPage extends React.Component<Props, Cards> {
         <h1>MainPage</h1>
         <SearchBar />
         <div className="Cards">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {
+            this.state.cards.map((el: TCard) => {
+                return (<Card title={el.title} img = {el.img} price = {el.price} />)
+            })
+          }
+         
         </div>
       </div>
     );
