@@ -7,9 +7,10 @@ import { BrowserRouter } from 'react-router-dom';
 describe('SearchBar test', () => {
   test('Should render component', () => {
     const wrapper = render(
-    <BrowserRouter>
-      <NotFound404 />
-    </BrowserRouter>);
+      <BrowserRouter>
+        <NotFound404 />
+      </BrowserRouter>
+    );
     expect(wrapper).toBeTruthy();
   });
 });

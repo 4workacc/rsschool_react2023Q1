@@ -21,7 +21,7 @@ class SearchBar extends React.Component<Props, SearchType> {
     localStorage.setItem('searchText', this.state.searchText);
   }
   componentDidMount(): void {
-    this.setState({ searchText: localStorage.getItem('searchText')! || ''});
+    this.setState({ searchText: localStorage.getItem('searchText')! || '' });
   }
   inputHandler = (e: string) => {
     this.setState((prevState) => {
