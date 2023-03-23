@@ -17,7 +17,7 @@ class Header extends React.Component<TProp> {
           <li key={1}>
             <Link to="/about">About Us</Link>
           </li>
-          <li key={1}>
+          <li key={2}>
             <Link to="/form">Separate route for form</Link>
           </li>
         </ul>
