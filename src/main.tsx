@@ -5,6 +5,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import NotFound404 from './Pages/NotFound404';
+import Form from './Pages/Form/Form';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
   {
     path: '/about',
     element: <AboutUs />,
+    errorElement: <NotFound404 />,
+  },
+  {
+    path: '/form',
+    element: <Form />,
     errorElement: <NotFound404 />,
   },
   {
