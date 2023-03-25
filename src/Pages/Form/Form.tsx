@@ -34,14 +34,33 @@ export default class Form extends React.Component<IFormProps, IFormState> {
     this.radio2 = React.createRef();
     this.radio3 = React.createRef();
   }
-  InputHandler = () => {
-    console.log(this.radio1.current?.checked);
-  };
+  
+  formHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    let storageData: any = localStorage.getItem("StorageCards") || "";
+    let tempData: any[] = storageData === "" ? [] : JSON.parse(storageData);
+
+    let selectedRadio;
+    if ( this.radio1.current?.checked) { selectedRadio = 0; }
+    if ( this.radio2.current?.checked) { selectedRadio = 1; }
+    if ( this.radio3.current?.checked) { selectedRadio = 2; }
+
+    event.preventDefault;
+    let qw = {
+      textValue: this.testInput.current?.value,
+      dateValue: this.dateInput.current?.value,
+      selectValue: this.selectInput.current?.selectedIndex,
+      checkBoxValue: this.checkboxInput.current?.checked,
+      radioValue: selectedRadio,
+      fileValue: this.fileInput.current?.value
+    }
+    tempData.push(qw);
+    localStorage.setItem("StorageCards", JSON.stringify(tempData));
+  }
   render() {
     return (
-      <div className="Form">
+      <div className="Form" >
         <Header page="Form" />
-        <form className="Form_form">
+        <form className="Form_form" onSubmit={this.formHandler}>
           <input type="text" ref={this.testInput} />
           <input type="date" ref={this.dateInput} />
           <select ref={this.selectInput}>
@@ -57,8 +76,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
                 id="radio1"
                 value="radio1"
                 ref={this.radio1}
-                name="test_radio"
-                onChange={() => this.InputHandler()}
+                name="test_radio"            
               />
               <label htmlFor="radio1">radio1</label>
             </div>
@@ -72,6 +90,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
             </div>
           </fieldset>
           <input type="file" ref={this.fileInput} />
+          <input type="submit" value = "Collect data"></input>
         </form>
       </div>
     );
