@@ -14,9 +14,9 @@ type TCard = {
   fileValue: string;
   price: number;
   date: string;
-  color: "red" | "green" | "black";
+  color: 'red' | 'green' | 'black';
   isAvalible: boolean;
-  boxSize: "small" | "medium" | "big";
+  boxSize: 'small' | 'medium' | 'big';
 };
 
 type Cards = {
@@ -31,8 +31,8 @@ class MainPage extends React.Component<Props, Cards> {
     };
   }
   componentDidMount(): void {
-    let dat = localStorage.getItem("StorageCards");
-    this.setState({cards: dat ? JSON.parse(dat) : []})
+    const dat = localStorage.getItem('StorageCards');
+    this.setState({ cards: dat ? JSON.parse(dat) : [] });
   }
   render() {
     return (
@@ -40,16 +40,18 @@ class MainPage extends React.Component<Props, Cards> {
         <SearchBar />
         <div className="Cards">
           {this.state.cards.map((el: TCard) => {
-            return <Card                   
-                      title={el.title} 
-                      img={el.fileValue} 
-                      price={el.price} 
-                      key={el.id} 
-                      date={el.date}
-                      color={el.color}
-                      isAvalible={el.isAvalible}
-                      boxSize={el.boxSize}
-                      />;
+            return (
+              <Card
+                title={el.title}
+                img={el.fileValue}
+                price={el.price}
+                key={el.id}
+                date={el.date}
+                color={el.color}
+                isAvalible={el.isAvalible}
+                boxSize={el.boxSize}
+              />
+            );
           })}
         </div>
       </div>

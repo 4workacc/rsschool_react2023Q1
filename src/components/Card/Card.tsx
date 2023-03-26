@@ -1,14 +1,14 @@
 import React from 'react';
 import './Card.scss';
 
-type Props = {  
+type Props = {
   title: string;
   img: string;
   price: number;
   date: string;
-  color: "red" | "green" | "black";
+  color: 'red' | 'green' | 'black';
   isAvalible: boolean;
-  boxSize: "small" | "medium" | "big";
+  boxSize: 'small' | 'medium' | 'big';
 };
 class Card extends React.Component<Props> {
   render() {
