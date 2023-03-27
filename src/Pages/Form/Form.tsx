@@ -128,6 +128,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
   clearSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
+  checkboxChangeHandler = () => {};
   render() {
     return (
       <div className="Form">
@@ -155,7 +156,12 @@ export default class Form extends React.Component<IFormProps, IFormState> {
             <option>black</option>
           </select>
           <label htmlFor="Form_isAtStore">Is avalible</label>
-          <input type="checkbox" ref={this.checkboxInput} id="Form_isAtStore" />
+          <input
+            type="checkbox"
+            ref={this.checkboxInput}
+            id="Form_isAtStore"
+            onChange={this.checkboxChangeHandler}
+          />
           <label htmlFor="Form_size">Box size</label>
           <fieldset id="Form_size">
             <legend>Select a box size:</legend>
