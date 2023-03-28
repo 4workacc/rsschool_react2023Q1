@@ -1,6 +1,6 @@
 .Card {
     width: 200px;
-    height: 200px;
+    height: 500px;
     
     display: flex;
     flex-direction: column;    
@@ -18,4 +18,8 @@
 .Form_err{
     color: red;
     display: block;
+}
+.Card_img{
+    width: 150px;
+    height: 150px;    
 }

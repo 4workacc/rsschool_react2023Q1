@@ -1,4 +1,5 @@
 import React from 'react';
+import default_img from '../../assets/default-image.jpg';
 import './Card.scss';
 
 type Props = {
@@ -15,7 +16,11 @@ class Card extends React.Component<Props> {
     return (
       <div className="Card">
         <h2>{this.props.title}</h2>
-        <h3>{this.props.img}</h3>
+        <img
+          src={this.props.img ? default_img : default_img}
+          className="Card_img"
+          title={this.props.img}
+        />
         <h5>{`price: ${this.props.price} $`}</h5>
         <h5>{`Date: ${this.props.date}`}</h5>
         <h5>{`Color: ${this.props.color}`}</h5>

@@ -103,6 +103,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
         selectedRadio = 2;
       }
       const qw = {
+        id: tempData.length + 1,
         title: this.testInput.current?.value,
         date: this.dateInput.current?.value,
         color: colors[this.selectInput.current!.selectedIndex],
