@@ -102,7 +102,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
       if (this.radio3.current?.checked) {
         selectedRadio = 2;
       }
-      const qw = {
+      const newCardData = {
         id: tempData.length + 1,
         title: this.testInput.current?.value,
         date: this.dateInput.current?.value,
@@ -112,7 +112,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
         fileValue: this.fileInput.current?.value,
         price: this.price.current?.value,
       };
-      tempData.push(qw);
+      tempData.push(newCardData);
       localStorage.setItem('StorageCards', JSON.stringify(tempData));
       alert('Form data saved');
 
@@ -173,16 +173,31 @@ export default class Form extends React.Component<IFormProps, IFormState> {
                 value="radio1"
                 ref={this.radio1}
                 name="test_radio"
+                onChange={this.checkboxChangeHandler}
                 checked
               />
               <label htmlFor="radio1">small</label>
             </div>
             <div>
-              <input type="radio" id="radio2" value="radio2" ref={this.radio2} name="test_radio" />
+              <input
+                type="radio"
+                id="radio2"
+                value="radio2"
+                ref={this.radio2}
+                name="test_radio"
+                onChange={this.checkboxChangeHandler}
+              />
               <label htmlFor="radio2">mediul</label>
             </div>
             <div>
-              <input type="radio" id="radio3" value="radio3" ref={this.radio3} name="test_radio" />
+              <input
+                type="radio"
+                id="radio3"
+                value="radio3"
+                ref={this.radio3}
+                name="test_radio"
+                onChange={this.checkboxChangeHandler}
+              />
               <label htmlFor="radio3">big</label>
             </div>
           </fieldset>
