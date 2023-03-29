@@ -1,0 +1,22 @@
+
+.MainPage{   
+    height: 1000px;
+    width: 1920px;
+
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.Cards {
+    width: 1800px;
+    height: 800px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    flex-direction: row;  
+    align-items: flex-start;
+    justify-content: flex-start;
+}
