@@ -41,14 +41,7 @@
     }
 
     &_Cards {        
-        width: 90%;
-        height: 700px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
-        flex-direction: row;  
-        align-items: flex-start;
-        justify-content: flex-start;
+       
     }
 }
 .Form_Header__fieldset {
@@ -57,4 +50,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+}
+.Form_hiddenError {
+    display: none;
+}
+.Form_showError {
+    display: block;
+    color: red;
 }
