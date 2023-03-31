@@ -1,12 +1,8 @@
 import Card from '../../components/Card/Card';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import React from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 
 import './index.scss';
-
-type Props = {
-  pros?: number;
-};
 
 type TCard = {
   id: number;
@@ -23,40 +19,49 @@ type Cards = {
   cards: TCard[];
 };
 
-class MainPage extends React.Component<Props, Cards> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      cards: [],
-    };
-  }
-  componentDidMount(): void {
-    const dat = localStorage.getItem('StorageCards');
-    this.setState({ cards: dat ? JSON.parse(dat) : [] });
-  }
-  render() {
-    return (
-      <div className="MainPage">
-        <SearchBar />
-        <div className="Cards">
-          {this.state.cards.map((el: TCard) => {
-            return (
-              <Card
-                title={el.title}
-                img={el.fileValue}
-                price={el.price}
-                key={el.id}
-                date={el.date}
-                color={el.color}
-                isAvalible={el.isAvalible}
-                boxSize={el.boxSize}
-              />
-            );
-          })}
-        </div>
+const MainPage: FC<Cards> = ({}): ReactElement => {
+  const [cards] = useState<TCard[]>([
+    {
+      id: 0,
+      title: 'Mock0',
+      fileValue: 'Moch1',
+      price: 1,
+      date: '2023-03-31',
+      color: 'red',
+      isAvalible: true,
+      boxSize: 'small',
+    },
+    {
+      id: 1,
+      title: 'Mock1',
+      fileValue: 'Moch1',
+      price: 11,
+      date: '2023-03-31',
+      color: 'red',
+      isAvalible: true,
+      boxSize: 'small',
+    },
+  ]);
+  return (
+    <div className="MainPage">
+      <SearchBar />
+      <div className="Cards">
+        {cards.map((el: TCard) => {
+          return (
+            <Card
+              title={el.title}
+              img={el.fileValue}
+              price={el.price}
+              key={el.id}
+              date={el.date}
+              color={el.color}
+              isAvalible={el.isAvalible}
+              boxSize={el.boxSize}
+            />
+          );
+        })}
       </div>
-    );
-  }
-}
-
+    </div>
+  );
+};
 export default MainPage;
