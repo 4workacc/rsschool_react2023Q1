@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="App">
       <Header page={'MainPage'} />
-      <MainPage />
+      <MainPage cards={[]} />
     </div>
   );
 }

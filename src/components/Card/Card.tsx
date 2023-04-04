@@ -3,13 +3,13 @@ import default_img from '../../assets/default-image.jpg';
 import './Card.scss';
 
 type Props = {
-  title: string;
-  img: string;
-  price: number;
-  date: string;
-  color: 'red' | 'green' | 'black';
-  isAvalible: boolean;
-  boxSize: 'small' | 'medium' | 'big';
+  title?: string;
+  img?: string;
+  price?: number;
+  date?: string;
+  color?: 'red' | 'green' | 'black';
+  isAvalible?: boolean;
+  boxSize?: 'small' | 'medium' | 'big';
 };
 class Card extends React.Component<Props> {
   render() {

@@ -1,53 +1,29 @@
-import React from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import './SearchBar.scss';
 
-type Props = {
-  pros?: number;
-  onChange?(): void;
-};
+const SearchBar: FC = (): React.ReactElement => {
+  const [searchTextState, setSearchTextState] = useState<string>('');
 
-type SearchType = {
-  searchText: string;
-};
+  useEffect(() => {
+    setSearchTextState(localStorage.getItem('searchText')! || '');
+  }, []);
 
-class SearchBar extends React.Component<Props, SearchType> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      searchText: '',
-    };
-  }
-  componentWillUnmount(): void {
-    localStorage.setItem('searchText', this.state.searchText);
-  }
-  componentDidMount(): void {
-    this.setState({ searchText: localStorage.getItem('searchText')! || '' });
-  }
-  inputHandler = (e: string) => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        searchText: e,
-      };
-    });
+  const inputHandler = (e: string) => {
+    setSearchTextState(e);
     localStorage.setItem('searchText', e);
   };
-
-  render() {
-    return (
-      <div className="SearchBar">
-        <input
-          type="text"
-          placeholder="ENTER_SEARCH_PARAMETER"
-          onChange={(e) => {
-            this.inputHandler(e.currentTarget.value);
-          }}
-          value={this.state.searchText}
-        />
-        <button>SEARCH</button>
-      </div>
-    );
-  }
-}
-
+  return (
+    <div className="SearchBar">
+      <input
+        type="text"
+        placeholder="ENTER_SEARCH_PARAMETER"
+        onChange={(e) => {
+          inputHandler(e.currentTarget.value);
+        }}
+        value={searchTextState}
+      />
+      <button>SEARCH</button>
+    </div>
+  );
+};
 export default SearchBar;

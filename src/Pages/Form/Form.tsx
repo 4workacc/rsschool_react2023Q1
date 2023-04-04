@@ -10,7 +10,7 @@ type Inputs = {
   date: string;
   check: boolean;
   radio: 'small' | 'medium' | 'big';
-  color: 'red' | 'green' | ' black';
+  color: 'red' | 'green' | 'black';
   file: string;
 };
 export type TStorageData = {
@@ -19,7 +19,7 @@ export type TStorageData = {
   img?: string | undefined;
   price: string | undefined;
   date: string | undefined;
-  color: 'red' | 'green' | ' black';
+  color: 'red' | 'green' | 'black';
   isAvalible: boolean | undefined;
   boxSize: 'small' | 'medium' | 'big';
 };

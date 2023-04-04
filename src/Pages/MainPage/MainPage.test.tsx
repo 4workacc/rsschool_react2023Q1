@@ -5,7 +5,7 @@ import MainPage from '.';
 
 describe('SearchBar test', () => {
   test('Should render component', () => {
-    const wrapper = render(<MainPage />);
+    const wrapper = render(<MainPage cards={[]} />);
     expect(wrapper).toBeTruthy();
   });
 });
