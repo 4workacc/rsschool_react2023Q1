@@ -75,7 +75,8 @@ export default function App() {
         {errors.price && <span>This field is required and [1..99] </span>}
         <input id="Form_dateInput" type="date" {...register('date', { required: true })} />
         {errors.date && <span>This field is required</span>}
-        <input type="checkbox" {...register('check')} />
+        <input type="checkbox" {...register('check', { required: true })} />
+        {errors.check && <span>This field is required</span>}
         <fieldset className="Form_Header__fieldset">
           <label htmlFor="radio0">
             <input type="radio" id="radio0" value="small" {...register('radio')} defaultChecked />
