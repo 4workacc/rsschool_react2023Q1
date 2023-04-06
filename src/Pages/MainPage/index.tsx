@@ -22,19 +22,19 @@ const MainPage = ({ }): ReactElement => {
     setFetchStatus('loading');
   }
 
-  const fetchData = () => {
-    fetch('https://rickandmortyapi.com/api/character')
+  const fetchData = (searchString: string) => {  
+    fetch(`https://rickandmortyapi.com/api/character${searchString}`)
       .then(res => { return res.json() })
       .then(data => { 
-        setCards(data.results || []);        
+        setCards(data.results || []);    
+        console.log(data);    
         setCountOfCards(data.info.count);
         setFetchStatus('loaded');
       }
       );
   }
-
-  const fetchDataBySearch = ()=> {
-    fetch(`https://rickandmortyapi.com/api/character/?name=${searchParamets}`)
+  const fetchPageByNumber = (pageNumber: number) => {
+    fetch(`https://rickandmortyapi.com/api/character/?page=pageNumber`)
     .then(res => { return res.json() })
     .then(data => { 
       setCards(data.results || []);   
@@ -44,20 +44,28 @@ const MainPage = ({ }): ReactElement => {
     );
   }
   useEffect(()=>{
-    fetchData();    
-    
+    fetchData('');       
   },[])
+
   useEffect(() => {
-    fetchDataBySearch();   
+    fetchData(`/?name=${searchParamets}`);   
   }, [searchParamets])
+
+  const clickPaginationHandler = (pageNumber: number) => {
+    setFetchStatus('loading');
+    let tempSearchString: string = searchParamets===''?`/?page=${pageNumber}`:`/?name=${searchParamets}&&?page=${pageNumber}`;
+    fetchData(tempSearchString); 
+  }
 
   return (
     <div className="MainPage">
       <SearchBar 
         setMainFormSearchParametr={searchParametrHandler} 
       />     
+      <h1>{`Count of pages: ${Math.ceil(countOfCard/20)}`}</h1>
       <Pagination 
-        countOfPaginationCells={countOfCard}
+        countOfPaginationCells={10}
+        getPageByNumber={clickPaginationHandler}
       />
       {fetchStatus === 'loading' && <h1>Processing data</h1>}
       {cards.length === 0 && <h1>No data to display</h1>}
