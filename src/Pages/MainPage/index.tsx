@@ -1,66 +1,53 @@
 import Card from '../../components/Card/Card';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import React, { FC, ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 
 import './index.scss';
+import { TRickAndMortyCharacter } from 'types';
+import CardList from '../../components/CardList/CardList';
+import BigCard from '../../components/BigCard/BigCard';
 
-type TCard = {
-  id: number;
-  title: string;
-  fileValue: string;
-  price: number;
-  date: string;
-  color: 'red' | 'green' | 'black';
-  isAvalible: boolean;
-  boxSize: 'small' | 'medium' | 'big';
-};
+// https://rickandmortyapi.com/api/character
 
-type Cards = {
-  cards: TCard[];
-};
+const MainPage = ({ }): ReactElement => {
+  const [cards, setCards] = useState<TRickAndMortyCharacter[]>([]);
+  const [searchParamets, setSearchParament] = useState<string>('');
+  const [fetchStatus, setFetchStatus] = useState<'loading'|'loaded'>('loaded');
+  const [isShowCard, switchIsShowCard] = useState<boolean>(true);
 
-const MainPage: FC<Cards> = ({}): ReactElement => {
-  const [cards] = useState<TCard[]>([
-    {
-      id: 0,
-      title: 'Mock0',
-      fileValue: 'Moch1',
-      price: 1,
-      date: '2023-03-31',
-      color: 'red',
-      isAvalible: true,
-      boxSize: 'small',
-    },
-    {
-      id: 1,
-      title: 'Mock1',
-      fileValue: 'Moch1',
-      price: 11,
-      date: '2023-03-31',
-      color: 'red',
-      isAvalible: true,
-      boxSize: 'small',
-    },
-  ]);
+  const searchParametrHandler = (eventParamert: string) => {
+    setSearchParament(eventParamert);
+    setFetchStatus('loading');
+  }
+
+  const fetchData = () => {
+    fetch('https://rickandmortyapi.com/api/character')
+      .then(res => { return res.json() })
+      .then(data => { 
+        setCards(data.results);
+        setFetchStatus('loaded');
+      }
+      );
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   return (
     <div className="MainPage">
-      <SearchBar />
-      <div className="Cards">
-        {cards.map((el: TCard) => {
-          return (
-            <Card
-              title={el.title}
-              img={el.fileValue}
-              price={el.price}
-              key={el.id}
-              date={el.date}
-              color={el.color}
-              isAvalible={el.isAvalible}
-              boxSize={el.boxSize}
-            />
-          );
-        })}
+      <SearchBar setMainFormSearchParametr={searchParametrHandler} />
+      {fetchStatus === 'loading' && <h1>Processing data</h1>}
+      <CardList cards={cards} />
+      {isShowCard && 
+      <div className='MainCardBack'> 
+        <div 
+          className='BlackBack'
+          onClick={()=>switchIsShowCard(false)}>                   
+        </div>
+        <BigCard onClick={()=>{switchIsShowCard(false)}} />
       </div>
+      }
     </div>
   );
 };
