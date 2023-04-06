@@ -20,6 +20,8 @@ export type TRickAndMortyCharacter = {
 
   export type TMainFormCards = {
     cards: TRickAndMortyCharacter[];
-    showCard?():void
+    showModalHandler?(): void;
+    hideModalHandler?(): void;
+    sendDataToParent(data:TRickAndMortyCharacter): void;
   };
   

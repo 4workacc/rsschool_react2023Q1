@@ -13,7 +13,8 @@ const MainPage = ({ }): ReactElement => {
   const [cards, setCards] = useState<TRickAndMortyCharacter[]>([]);
   const [searchParamets, setSearchParament] = useState<string>('');
   const [fetchStatus, setFetchStatus] = useState<'loading'|'loaded'>('loaded');
-  const [isShowCard, switchIsShowCard] = useState<boolean>(true);
+  const [isShowCard, switchIsShowCard] = useState<boolean>(false);
+  const [bigCardData, setBigCardData] = useState<TRickAndMortyCharacter>();
 
   const searchParametrHandler = (eventParamert: string) => {
     setSearchParament(eventParamert);
@@ -38,14 +39,21 @@ const MainPage = ({ }): ReactElement => {
     <div className="MainPage">
       <SearchBar setMainFormSearchParametr={searchParametrHandler} />
       {fetchStatus === 'loading' && <h1>Processing data</h1>}
-      <CardList cards={cards} />
+       <CardList 
+        cards={cards} 
+        showModalHandler={()=>switchIsShowCard(true)} 
+        hideModalHandler={()=>switchIsShowCard(false)}
+        sendDataToParent={(data)=>{ setBigCardData(data)}} />
       {isShowCard && 
       <div className='MainCardBack'> 
         <div 
           className='BlackBack'
           onClick={()=>switchIsShowCard(false)}>                   
         </div>
-        <BigCard onClick={()=>{switchIsShowCard(false)}} />
+        <BigCard 
+          onClick={()=>{switchIsShowCard(false)}} 
+          cardData = {bigCardData!}
+          />
       </div>
       }
     </div>

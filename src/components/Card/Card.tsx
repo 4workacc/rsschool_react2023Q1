@@ -4,14 +4,22 @@ import { TRickAndMortyCharacter } from 'types';
 
 type Props = {
   data: TRickAndMortyCharacter;
-  onClick(): void;
+  showModal(): void;
+  hideModal(): void;  
+  sendDataToParent(data: TRickAndMortyCharacter): void
 };
 
 class Card extends React.Component<Props> {
   render() {
     return (
-      <div className="Card">
-        <button onClick={()=>this.props.onClick()}></button>
+      <div 
+        className="Card" 
+        onClick={()=>{
+          this.props.showModal();
+          this.props.sendDataToParent(this.props.data);
+
+        }}>
+        <button onClick={()=>this.props.hideModal()}></button>
         <h2>{`Name: ${this.props.data.name}`}</h2>
         <img
           src={this.props.data.image}
