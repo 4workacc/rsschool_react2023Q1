@@ -1,7 +1,7 @@
 
 .MainPage{   
     height: 1000px;
-    width: 1920px;
+    width: 100%;
 
     display: flex;
     flex-direction: column;  
@@ -9,17 +9,7 @@
     justify-content: space-between;
     
 }
-.Cards {
-    width: 1800px;
-    height: 800px;
 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    flex-direction: row;  
-    align-items: flex-start;
-    justify-content: flex-start;
-}
 .BlackBack {
     width: 100%;
     height: 100%;   

@@ -12,7 +12,7 @@ import BigCard from '../../components/BigCard/BigCard';
 const MainPage = ({ }): ReactElement => {
   const [cards, setCards] = useState<TRickAndMortyCharacter[]>([]);
   const [searchParamets, setSearchParament] = useState<string>('');
-  const [fetchStatus, setFetchStatus] = useState<'loading'|'loaded'>('loaded');
+  const [fetchStatus, setFetchStatus] = useState<'loading'|'loaded'>('loading');
   const [isShowCard, switchIsShowCard] = useState<boolean>(false);
   const [bigCardData, setBigCardData] = useState<TRickAndMortyCharacter>();
 
@@ -25,20 +25,35 @@ const MainPage = ({ }): ReactElement => {
     fetch('https://rickandmortyapi.com/api/character')
       .then(res => { return res.json() })
       .then(data => { 
-        setCards(data.results);
+        setCards(data.results || []);
         setFetchStatus('loaded');
       }
       );
   }
 
+  const fetchDataBySearch = ()=> {
+    fetch(`https://rickandmortyapi.com/api/character/?name=${searchParamets}`)
+    .then(res => { return res.json() })
+    .then(data => { 
+      setCards(data.results || []);
+      setFetchStatus('loaded');
+    }
+    );
+  }
+  useEffect(()=>{
+    fetchData();
+  },[])
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchDataBySearch()
+  }, [searchParamets])
 
   return (
     <div className="MainPage">
-      <SearchBar setMainFormSearchParametr={searchParametrHandler} />
+      <SearchBar 
+        setMainFormSearchParametr={searchParametrHandler} 
+      />
       {fetchStatus === 'loading' && <h1>Processing data</h1>}
+      {cards.length === 0 && <h1>No data to display</h1>}
        <CardList 
         cards={cards} 
         showModalHandler={()=>switchIsShowCard(true)} 

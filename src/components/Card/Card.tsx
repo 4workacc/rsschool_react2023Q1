@@ -26,8 +26,8 @@ class Card extends React.Component<Props> {
           className="Card_img"
           title={this.props.data.image}
         />
-        <h5>{this.props.data.image}</h5>
-        <h5>{`Status: ${this.props.data.status} $`}</h5>
+        {/* <h5>{this.props.data.image}</h5> */}
+        <h5>{`Status: ${this.props.data.status}`}</h5>
         <h5>{`species: ${this.props.data.species}`}</h5>
         <h5>{`type: ${this.props.data.type}`}</h5>
         <h5>{`gender: ${this.props.data.gender}`}</h5>
