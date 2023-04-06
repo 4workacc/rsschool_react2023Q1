@@ -50,7 +50,9 @@ class SearchBar extends React.Component<Props, SearchType> {
           }}
           value={this.state.searchText}
         />
-        <button>SEARCH</button>
+        <button onClick = {()=>{
+          this.props.setMainFormSearchParametr(this.state.searchText)
+        }}>SEARCH</button>
       </div>
     );
   }
