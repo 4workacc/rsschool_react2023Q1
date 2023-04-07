@@ -29,8 +29,7 @@ class SearchBar extends React.Component<Props, SearchType> {
         ...prevState,
         searchText: e,
       };
-    });    
-    
+    });
     localStorage.setItem('searchText', e);
   };
 
@@ -40,19 +39,23 @@ class SearchBar extends React.Component<Props, SearchType> {
         <input
           type="text"
           placeholder="ENTER_SEARCH_PARAMETER"
-          onChange={(e) => {            
-            this.inputHandler(e.currentTarget.value);            
+          onChange={(e) => {
+            this.inputHandler(e.currentTarget.value);
           }}
-          onKeyDown={ (e: React.KeyboardEvent<HTMLInputElement>) => {
-              if (e.key === "Enter") {
-                this.props.setMainFormSearchParametr(e.currentTarget.value)
-              }
+          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === 'Enter') {
+              this.props.setMainFormSearchParametr(e.currentTarget.value);
+            }
           }}
           value={this.state.searchText}
         />
-        <button onClick = {()=>{
-          this.props.setMainFormSearchParametr(this.state.searchText)
-        }}>SEARCH</button>
+        <button
+          onClick={() => {
+            this.props.setMainFormSearchParametr(this.state.searchText);
+          }}
+        >
+          SEARCH
+        </button>
       </div>
     );
   }
