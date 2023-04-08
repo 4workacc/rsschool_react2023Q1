@@ -4,7 +4,7 @@ import PaginationCell from '../PaginationCell/PaginationCell';
 
 type TProps = {
   countOfPaginationCells: number;
-  getPageByNumber(pageNumber: number): void;
+  getPageByNumber?(pageNumber: number): void;
 };
 const Pagination: FC<TProps> = ({
   countOfPaginationCells,
@@ -15,11 +15,11 @@ const Pagination: FC<TProps> = ({
     const tempPagArray: ReactElement[] = [];
     for (let i = 0; i < countOfPaginationCells; i++) {
       tempPagArray.push(
-        <PaginationCell innerNumber={i} key={i} clickHandler={(i) => getPageByNumber(i)} />
+        <PaginationCell innerNumber={i} key={i} clickHandler={(i) => getPageByNumber!(i)} />
       );
     }
     setPaginationArray(tempPagArray);
-  }, [countOfPaginationCells, pagArray, getPageByNumber]);
+  }, [countOfPaginationCells, getPageByNumber]);
   return <div className="Pagination">{pagArray}</div>;
 };
 export default Pagination;

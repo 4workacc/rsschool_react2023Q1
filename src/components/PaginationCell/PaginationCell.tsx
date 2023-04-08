@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 type TProps = {
   innerNumber: number;
-  clickHandler(pageNumber: number): void;
+  clickHandler?(pageNumber: number): void;
 };
 
 const PaginationCell: FC<TProps> = ({ innerNumber, clickHandler }): React.ReactElement => {
@@ -10,7 +10,7 @@ const PaginationCell: FC<TProps> = ({ innerNumber, clickHandler }): React.ReactE
     <div
       className="PaginationCell"
       onClick={() => {
-        clickHandler(innerNumber);
+        clickHandler!(innerNumber);
       }}
     >
       <h1>{innerNumber + 1}</h1>

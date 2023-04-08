@@ -29,8 +29,7 @@ const MainPage = ({}): ReactElement => {
         return res.json();
       })
       .then((data) => {
-        setCards(data.results || []);
-        console.log(data);
+        setCards(data.results || []);      
         setCountOfCards(data.info.count);
         setFetchStatus('loaded');
       });
