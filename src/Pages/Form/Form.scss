@@ -1,0 +1,60 @@
+.Form {    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 700px;
+
+    margin: 0 1 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    &_Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &_Header{
+        width: 1000px;
+        height: 200px;
+
+        padding-top: 100px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        &>div {
+            width: 150px;
+            height: 190px;        
+            
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+    }
+
+    &_Cards {        
+       
+    }
+}
+.Form_Header__fieldset {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.Form_hiddenError {
+    display: none;
+}
+.Form_showError {
+    display: block;
+    color: red;
+}
