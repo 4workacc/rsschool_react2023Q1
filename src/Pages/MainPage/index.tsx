@@ -29,15 +29,24 @@ const MainPage = ({}): ReactElement => {
         return res.json();
       })
       .then((data) => {
-        setCards(data.results || []);      
-        setCountOfCards(data.info.count);
-        setFetchStatus('loaded');
+        if (!data.error) {
+          setCards(data.results || []);
+          setCountOfCards(data.info.count);
+          setFetchStatus('loaded');
+        } else {
+          setCards([]);
+          setCountOfCards(0);
+          setFetchStatus('loaded');
+        }
       });
   };
   useEffect(() => {
-    fetchData('');
+    // fetchData('');
+    setCards([]);
+    setSearchParament(localStorage.getItem('searchText') || '');
   }, []);
   useEffect(() => {
+    setCards([]);
     fetchData(`/?name=${searchParamets}`);
   }, [searchParamets]);
   const clickPaginationHandler = (pageNumber: number) => {

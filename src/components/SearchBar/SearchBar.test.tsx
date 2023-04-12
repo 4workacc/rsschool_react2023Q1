@@ -8,7 +8,7 @@ describe('SearchBar test', () => {
   let wrapper: RenderResult;
   let input: HTMLInputElement;
   beforeEach(() => {
-    wrapper = render(<SearchBar />);
+    wrapper = render(<SearchBar setMainFormSearchParametr={() => {}} />);
     input = screen.getByPlaceholderText('ENTER_SEARCH_PARAMETER');
   });
   test('Should render component', () => {
