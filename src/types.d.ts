@@ -26,7 +26,7 @@ export type TRickAndMortyCharacter = {
   };
   
 
-  export type TReduxState = {
+  export type TReduxRootState = {
     searchData: string;
     searchResult: TRickAndMortyCharacter[]
   }
@@ -44,4 +44,13 @@ export type TRickAndMortyCharacter = {
     START_LOADING,
     LOAD_DATA_TO_STORE = "LOAD_DATA_TO_STORE",
     FINISH_LOADING
+  }
+
+  export type TRequestAnswer = {
+    info: string,
+    results: TRickAndMortyCharacter[]
+  }
+
+  export type TReduxReducers = {
+    rootReducer: TReduxRootState
   }

@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 
 type Props = {
   pros?: number;
-  searchText?: string;
-  setMainFormSearchParametr(ev: string): void;
+  searchText?: string;  
   onSearchHandler?(val: string): void;
 };
 
@@ -22,7 +21,11 @@ class SearchBar extends React.Component<Props, SearchType> {
       searchText: '',
     };
   }
-
+  componentDidMount(): void {
+    this.setState({
+      searchText: this.props.searchText || ''
+    })
+  }
   render() {
     return (
       <div className="SearchBar">       
@@ -30,18 +33,20 @@ class SearchBar extends React.Component<Props, SearchType> {
           type="text"
           placeholder="ENTER_SEARCH_PARAMETER"
           onChange={(e) => {
-            this.props.onSearchHandler!(e.currentTarget.value);
+            this.setState({
+              searchText: e.currentTarget.value
+            })
           }}
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === 'Enter') {
-              this.props.setMainFormSearchParametr(e.currentTarget.value);              
+              this.props.onSearchHandler!(this.state.searchText);      
             }
           }}
-          value={this.props.searchText}
+          value={this.state.searchText}
         />
         <button
-          onClick={() => {
-            this.props.setMainFormSearchParametr(this.state.searchText);
+          onClick={() => {            
+            this.props.onSearchHandler!(this.state.searchText);
           }}
         >
           SEARCH

@@ -1,7 +1,7 @@
-import { TReduxState } from "types"
+import { TReduxRootState } from "types"
 
-const initState: TReduxState = {
-    searchData: '111',
+const initState: TReduxRootState = {
+    searchData: '',
     searchResult: []
 }
 
