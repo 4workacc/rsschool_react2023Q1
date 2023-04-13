@@ -6,10 +6,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import NotFound404 from './Pages/NotFound404';
 import Form from './Pages/Form/Form';
-import { createStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import rootReduces from './redux/reducers/rootReduces';
 import { Provider } from 'react-redux';
-
+import { rickApi } from './redux/rtk/getRequest';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +34,14 @@ const router = createBrowserRouter([
   },
 ]);
 
-const store = createStore(rootReduces);
+
+const store =  configureStore({
+  reducer: {
+    rootReducer: rootReduces,
+    [rickApi.reducerPath]: rickApi.reducer,    
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rickApi.middleware),
+});
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store = {store}>

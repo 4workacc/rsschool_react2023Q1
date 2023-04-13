@@ -34,8 +34,7 @@ class SearchBar extends React.Component<Props, SearchType> {
           }}
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === 'Enter') {
-              this.props.setMainFormSearchParametr(e.currentTarget.value);
-              
+              this.props.setMainFormSearchParametr(e.currentTarget.value);              
             }
           }}
           value={this.props.searchText}

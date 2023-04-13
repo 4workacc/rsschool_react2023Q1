@@ -28,9 +28,20 @@ export type TRickAndMortyCharacter = {
 
   export type TReduxState = {
     searchData: string;
+    searchResult: TRickAndMortyCharacter[]
   }
 
   export type TReduxSearchAction = {
     type: string;
     value: string;
+  }
+  export type TReduxLoadAction = {
+    type: string;
+    searchData: string;
+  }
+  export enum ActionTypes {
+    ADD_SEARCH_DATA = "ADD_SEARCH_DATA",
+    START_LOADING,
+    LOAD_DATA_TO_STORE = "LOAD_DATA_TO_STORE",
+    FINISH_LOADING
   }
