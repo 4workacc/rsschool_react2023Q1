@@ -1,9 +1,14 @@
 import React from 'react';
 import './SearchBar.scss';
+import { TReduxState } from 'types';
+
+import { connect } from 'react-redux';
 
 type Props = {
   pros?: number;
+  searchText?: string;
   setMainFormSearchParametr(ev: string): void;
+  onSearchHandler?(val: string): void;
 };
 
 type SearchType = {
@@ -17,37 +22,23 @@ class SearchBar extends React.Component<Props, SearchType> {
       searchText: '',
     };
   }
-  componentWillUnmount(): void {
-    localStorage.setItem('searchText', this.state.searchText);
-  }
-  componentDidMount(): void {
-    this.setState({ searchText: localStorage.getItem('searchText')! || '' });
-  }
-  inputHandler = (e: string) => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        searchText: e,
-      };
-    });
-    localStorage.setItem('searchText', e);
-  };
 
   render() {
     return (
-      <div className="SearchBar">
+      <div className="SearchBar">       
         <input
           type="text"
           placeholder="ENTER_SEARCH_PARAMETER"
           onChange={(e) => {
-            this.inputHandler(e.currentTarget.value);
+            this.props.onSearchHandler!(e.currentTarget.value);
           }}
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === 'Enter') {
               this.props.setMainFormSearchParametr(e.currentTarget.value);
+              
             }
           }}
-          value={this.state.searchText}
+          value={this.props.searchText}
         />
         <button
           onClick={() => {
@@ -61,4 +52,15 @@ class SearchBar extends React.Component<Props, SearchType> {
   }
 }
 
-export default SearchBar;
+const mapStateToProps = (state: TReduxState) => ({
+  searchText: state.searchData
+});
+const mapDispatch = (dispatch: any) => ({
+  onSearchHandler: (val: string) => {
+    dispatch({
+      type: 'ADD_SEARCH_DATA',
+      value: val
+    })
+  }
+});
+export default connect(mapStateToProps, mapDispatch) (SearchBar);

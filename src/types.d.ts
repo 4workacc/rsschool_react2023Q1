@@ -25,3 +25,12 @@ export type TRickAndMortyCharacter = {
     sendDataToParent(data:TRickAndMortyCharacter): void;
   };
   
+
+  export type TReduxState = {
+    searchData: string;
+  }
+
+  export type TReduxSearchAction = {
+    type: string;
+    value: string;
+  }

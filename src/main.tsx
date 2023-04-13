@@ -6,6 +6,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs';
 import NotFound404 from './Pages/NotFound404';
 import Form from './Pages/Form/Form';
+import { createStore } from '@reduxjs/toolkit';
+import rootReduces from './redux/reducers/rootReduces';
+import { Provider } from 'react-redux';
+
 
 const router = createBrowserRouter([
   {
@@ -30,6 +34,10 @@ const router = createBrowserRouter([
   },
 ]);
 
+const store = createStore(rootReduces);
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <RouterProvider router={router} />
+  <Provider store = {store}>
+   <RouterProvider router={router} />
+  </Provider>
 );

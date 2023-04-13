@@ -5,7 +5,9 @@ import BigCard from '../../components/BigCard/BigCard';
 import Pagination from '../../components/Pagination/Pagination';
 
 import './index.scss';
-import { TRickAndMortyCharacter } from 'types';
+import { TReduxState, TRickAndMortyCharacter } from 'types';
+
+import { useSelector } from 'react-redux';
 
 // https://rickandmortyapi.com/api/character
 
@@ -17,6 +19,8 @@ const MainPage = ({}): ReactElement => {
   const [bigCardData, setBigCardData] = useState<TRickAndMortyCharacter>();
   const [countOfCard, setCountOfCards] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const sData =  useSelector((state: TReduxState) => state.searchData);
 
   const searchParametrHandler = (eventParamert: string) => {
     setSearchParament(eventParamert);
@@ -43,7 +47,7 @@ const MainPage = ({}): ReactElement => {
   useEffect(() => {
     // fetchData('');
     setCards([]);
-    setSearchParament(localStorage.getItem('searchText') || '');
+    setSearchParament(sData);
   }, []);
   useEffect(() => {
     setCards([]);
@@ -59,7 +63,7 @@ const MainPage = ({}): ReactElement => {
     fetchData(tempSearchString);
   };
   return (
-    <div className="MainPage">
+    <div className="MainPage">       
       <SearchBar setMainFormSearchParametr={searchParametrHandler} />
       <h1>{`Current pages ${currentPage + 1}/ ${Math.ceil(countOfCard / 20)}`}</h1>
       <Pagination
