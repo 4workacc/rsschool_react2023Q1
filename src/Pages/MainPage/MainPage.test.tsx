@@ -2,10 +2,10 @@ import React from 'react';
 import { describe, test, expect, beforeEach } from 'vitest';
 import { RenderResult, render } from '@testing-library/react';
 
-import configureMockStore  from 'redux-mock-store';
+import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { rickApi } from '../../redux/rtk/getRequest';
-import thunk from 'redux-thunk'
+import thunk from 'redux-thunk';
 import MainPage from '.';
 import { TReduxReducers } from 'types';
 
@@ -17,8 +17,8 @@ describe('MainPage test', () => {
       searchResult: [],
       formData: [],
     },
-  };  
-  const middlewares = [thunk, rickApi.middleware]
+  };
+  const middlewares = [thunk, rickApi.middleware];
   const mockStore = configureMockStore(middlewares);
 
   beforeEach(() => {

@@ -1,13 +1,9 @@
 import React, { ReactElement } from 'react';
 
 import './FormCards.scss';
-import { TReduxReducers, TReduxRootState, TStorageData } from 'types';
+import { TReduxReducers, TStorageData } from 'types';
 import { useSelector } from 'react-redux';
 import FormCard from '../FormCard/FormCard';
-
-type TProps = {
-  cards: TStorageData[];
-};
 
 const FormCards = (): ReactElement => {
   const cards: TStorageData[] = useSelector((state: TReduxReducers) => state.rootReducer.formData);

@@ -1,9 +1,9 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import React, { useState } from 'react';
+import React from 'react';
 import './Form.scss';
 import FormCards from '../FormCards/FormCards';
 import Header from '../../components/Header/Header';
-import { TReduxReducers, TReduxRootState, TStorageData } from 'types';
+import { TReduxReducers } from 'types';
 import { useDispatch, useSelector } from 'react-redux';
 
 type Inputs = {
@@ -39,7 +39,7 @@ export default function App() {
         color: data.color,
         isAvalible: data.check,
         boxSize: data.radio,
-      }
+      },
     });
     alert('Card is created!');
     reset({
@@ -95,9 +95,7 @@ export default function App() {
         <input type="file" {...register('file', { required: true })} />
         <input type="submit" />
       </form>
-      <div className="Form_Cards">
-        { cardsData && <FormCards />}
-      </div>
+      <div className="Form_Cards"> {cardsData && <FormCards />} </div>
     </div>
   );
 }
