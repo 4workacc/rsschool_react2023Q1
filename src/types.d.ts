@@ -25,10 +25,10 @@ export type TRickAndMortyCharacter = {
     sendDataToParent(data:TRickAndMortyCharacter): void;
   };
   
-
   export type TReduxRootState = {
     searchData: string;
-    searchResult: TRickAndMortyCharacter[]
+    searchResult: TRickAndMortyCharacter[],
+    formData: TStorageData[],
   }
 
   export type TReduxSearchAction = {
@@ -39,6 +39,7 @@ export type TRickAndMortyCharacter = {
     type: string;
     searchData: string;
   }
+
   export enum ActionTypes {
     ADD_SEARCH_DATA = "ADD_SEARCH_DATA",
     START_LOADING,
@@ -53,4 +54,19 @@ export type TRickAndMortyCharacter = {
 
   export type TReduxReducers = {
     rootReducer: TReduxRootState
+  }
+  export type TStorageData = {
+    id?: number;
+    title: string;
+    img?: string | undefined;
+    price: string | undefined;
+    date: string | undefined;
+    color: 'red' | 'green' | 'black';
+    isAvalible: boolean | undefined;
+    boxSize: 'small' | 'medium' | 'big';
+  };
+
+  export type TReduxAddCardAction = {
+    type: string,
+    cardData: TStorageData
   }

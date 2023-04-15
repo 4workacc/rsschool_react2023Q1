@@ -12,7 +12,13 @@ const rootReduces = (state: TReduxRootState = initState, action: any) => {
         return {
           ...state,
           searchResult: action.searchData,
-        };      
+        };    
+      case "ADD_FORM_CARD": 
+        
+        return {
+          ...state,
+          formData: [...state.formData, action.cardData],
+        };   
       default:
         return state
     }

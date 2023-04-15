@@ -1,22 +1,24 @@
-import Card from '../../components/Card/Card';
-import { TStorageData } from 'Pages/Form/Form';
 import React, { ReactElement } from 'react';
 
 import './FormCards.scss';
+import { TReduxReducers, TReduxRootState, TStorageData } from 'types';
+import { useSelector } from 'react-redux';
+import FormCard from '../FormCard/FormCard';
 
 type TProps = {
   cards: TStorageData[];
 };
 
-const FormCards = ({ cards }: TProps): ReactElement => {
+const FormCards = (): ReactElement => {
+  const cards: TStorageData[] = useSelector((state: TReduxReducers) => state.rootReducer.formData);
   return (
     <div className="FormCards">
       {cards.map((card: TStorageData) => {
         return (
-          <Card
+          <FormCard
             title={card.title!}
             img={card.img!}
-            price={+card.price!}
+            price={card.price!}
             key={card.id}
             date={card.date!}
             color={card.color}

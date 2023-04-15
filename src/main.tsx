@@ -7,9 +7,9 @@ import AboutUs from './Pages/AboutUs';
 import NotFound404 from './Pages/NotFound404';
 import Form from './Pages/Form/Form';
 import { configureStore } from '@reduxjs/toolkit';
-import rootReduces from './redux/reducers/rootReduces';
 import { Provider } from 'react-redux';
 import { rickApi } from './redux/rtk/getRequest';
+import rootReduces from './redux/reducers/rootReduces';
 
 const router = createBrowserRouter([
   {

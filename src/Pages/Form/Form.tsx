@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import './Form.scss';
 import FormCards from '../FormCards/FormCards';
 import Header from '../../components/Header/Header';
+import { TReduxReducers, TReduxRootState, TStorageData } from 'types';
+import { useDispatch, useSelector } from 'react-redux';
 
 type Inputs = {
   title: string;
@@ -13,16 +15,7 @@ type Inputs = {
   color: 'red' | 'green' | 'black';
   file: string;
 };
-export type TStorageData = {
-  id?: number;
-  title: string | undefined;
-  img?: string | undefined;
-  price: string | undefined;
-  date: string | undefined;
-  color: 'red' | 'green' | 'black';
-  isAvalible: boolean | undefined;
-  boxSize: 'small' | 'medium' | 'big';
-};
+
 export default function App() {
   const {
     register,
@@ -30,21 +23,24 @@ export default function App() {
     reset,
     formState: { errors },
   } = useForm<Inputs>();
-  const [cardsData, addCardData] = useState<TStorageData[]>([]);
+
+  const cardsData = useSelector((state: TReduxReducers) => state.rootReducer.formData);
+  const dispatch = useDispatch();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    addCardData([
-      ...cardsData,
-      {
-        id: cardsData.length + 1,
+    dispatch({
+      type: 'ADD_FORM_CARD',
+      cardData: {
+        id: cardsData ? cardsData.length + 1 : 0,
         title: data.title,
-        img: data.file,
+        // img: data.file,
+        img: '1',
         price: '' + data.price,
         date: data.date,
         color: data.color,
         isAvalible: data.check,
         boxSize: data.radio,
-      },
-    ]);
+      }
+    });
     alert('Card is created!');
     reset({
       title: '',
@@ -100,7 +96,7 @@ export default function App() {
         <input type="submit" />
       </form>
       <div className="Form_Cards">
-        <FormCards cards={cardsData} />
+        { cardsData && <FormCards />}
       </div>
     </div>
   );

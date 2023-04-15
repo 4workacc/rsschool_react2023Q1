@@ -1,6 +1,6 @@
 import React from 'react';
 import './Card.scss';
-import { TRickAndMortyCharacter } from 'types';
+import { TRickAndMortyCharacter } from '../../types';
 
 type Props = {
   data: TRickAndMortyCharacter;

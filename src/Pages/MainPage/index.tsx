@@ -25,7 +25,7 @@ const MainPage = ({}): ReactElement => {
           cards={data.results || []}
           showModalHandler={() => switchIsShowCard(true)}
           hideModalHandler={() => switchIsShowCard(false)}
-          sendDataToParent={(dat) => {
+          sendDataToParent={(dat: TRickAndMortyCharacter) => {
             setBigCardData(dat);
           }}
         />
