@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import './SearchBar.scss';
-import { TReduxState } from 'types';
+import { TReduxRootState, TReduxSearchAction } from 'types';
 
 import { connect } from 'react-redux';
 
 type Props = {
   pros?: number;
-  searchText?: string;  
+  searchText?: string;
   onSearchHandler?(val: string): void;
 };
 
@@ -23,29 +23,29 @@ class SearchBar extends React.Component<Props, SearchType> {
   }
   componentDidMount(): void {
     this.setState({
-      searchText: this.props.searchText || ''
-    })
+      searchText: this.props.searchText || '',
+    });
   }
   render() {
     return (
-      <div className="SearchBar">       
+      <div className="SearchBar">
         <input
           type="text"
           placeholder="ENTER_SEARCH_PARAMETER"
           onChange={(e) => {
             this.setState({
-              searchText: e.currentTarget.value
-            })
+              searchText: e.currentTarget.value,
+            });
           }}
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === 'Enter') {
-              this.props.onSearchHandler!(this.state.searchText);      
+              this.props.onSearchHandler!(this.state.searchText);
             }
           }}
           value={this.state.searchText}
         />
         <button
-          onClick={() => {            
+          onClick={() => {
             this.props.onSearchHandler!(this.state.searchText);
           }}
         >
@@ -56,15 +56,15 @@ class SearchBar extends React.Component<Props, SearchType> {
   }
 }
 
-const mapStateToProps = (state: TReduxState) => ({
-  searchText: state.searchData
+const mapStateToProps = (state: TReduxRootState) => ({
+  searchText: state.searchData,
 });
-const mapDispatch = (dispatch: any) => ({
+const mapDispatch = (dispatch: Dispatch<TReduxSearchAction>) => ({
   onSearchHandler: (val: string) => {
     dispatch({
       type: 'ADD_SEARCH_DATA',
-      value: val
-    })
-  }
+      value: val,
+    });
+  },
 });
-export default connect(mapStateToProps, mapDispatch) (SearchBar);
+export default connect(mapStateToProps, mapDispatch)(SearchBar);

@@ -34,17 +34,16 @@ const router = createBrowserRouter([
   },
 ]);
 
-
-const store =  configureStore({
+const store = configureStore({
   reducer: {
     rootReducer: rootReduces,
-    [rickApi.reducerPath]: rickApi.reducer,    
+    [rickApi.reducerPath]: rickApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rickApi.middleware),
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <Provider store = {store}>
-   <RouterProvider router={router} />
+  <Provider store={store}>
+    <RouterProvider router={router} />
   </Provider>
 );

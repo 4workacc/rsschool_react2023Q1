@@ -3,12 +3,25 @@ import { describe, test, expect, beforeEach, vi, afterAll } from 'vitest';
 import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SearchBar from './SearchBar';
+import { TReduxRootState } from 'types';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 
 describe('SearchBar test', () => {
   let wrapper: RenderResult;
   let input: HTMLInputElement;
+  const mockData: TReduxRootState = {
+    searchData: '',
+    searchResult: [],
+  };
+  const mockStore = configureStore([]);
   beforeEach(() => {
-    wrapper = render(<SearchBar setMainFormSearchParametr={() => {}} />);
+    const store = mockStore(mockData);
+    wrapper = render(
+      <Provider store={store}>
+        <SearchBar />
+      </Provider>
+    );
     input = screen.getByPlaceholderText('ENTER_SEARCH_PARAMETER');
   });
   test('Should render component', () => {
