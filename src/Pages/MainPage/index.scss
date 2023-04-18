@@ -1,0 +1,24 @@
+
+.MainPage{   
+    height: 1000px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.BlackBack {
+    width: 100%;
+    height: 100%;   
+    opacity: 0.5;
+    background-color: bisque;
+}
+.MainCardBack {
+    position: fixed;
+    
+    width: 100%;
+    height: 100%;   
+}

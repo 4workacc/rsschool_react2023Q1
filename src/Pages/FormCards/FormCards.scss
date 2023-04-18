@@ -1,0 +1,10 @@
+.FormCards {
+    width: 90%;
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    flex-direction: row;  
+    align-items: flex-start;
+    justify-content: flex-start;
+}
