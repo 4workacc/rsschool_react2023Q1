@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { TRequestAnswer } from 'types'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { TRequestAnswer } from 'types';
 
 export const rickApi = createApi({
   reducerPath: 'rickApi',
@@ -7,9 +7,8 @@ export const rickApi = createApi({
   endpoints: (builder) => ({
     getAllCharacters: builder.query<TRequestAnswer, string>({
       query: (name: string) => `character/?name=${name}`,
-    })
+    }),
   }),
-  refetchOnMountOrArgChange: true
-})
-
+  refetchOnMountOrArgChange: true,
+});
 export const { useGetAllCharactersQuery } = rickApi;

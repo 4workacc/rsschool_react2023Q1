@@ -1,70 +1,44 @@
-import React, { Dispatch } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { TReduxReducers } from 'types';
 import './SearchBar.scss';
-import { TReduxRootState, TReduxSearchAction } from 'types';
 
-import { connect } from 'react-redux';
-
-type Props = {
-  pros?: number;
-  searchText?: string;
-  onSearchHandler?(val: string): void;
-};
-
-type SearchType = {
-  searchText: string;
-};
-
-class SearchBar extends React.Component<Props, SearchType> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      searchText: '',
-    };
-  }
-  componentDidMount(): void {
-    this.setState({
-      searchText: this.props.searchText || '',
-    });
-  }
-  render() {
-    return (
-      <div className="SearchBar">
-        <input
-          type="text"
-          placeholder="ENTER_SEARCH_PARAMETER"
-          onChange={(e) => {
-            this.setState({
-              searchText: e.currentTarget.value,
-            });
-          }}
-          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-            if (e.key === 'Enter') {
-              this.props.onSearchHandler!(this.state.searchText);
-            }
-          }}
-          value={this.state.searchText}
-        />
-        <button
-          onClick={() => {
-            this.props.onSearchHandler!(this.state.searchText);
-          }}
-        >
-          SEARCH
-        </button>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = (state: TReduxRootState) => ({
-  searchText: state.searchData,
-});
-const mapDispatch = (dispatch: Dispatch<TReduxSearchAction>) => ({
-  onSearchHandler: (val: string) => {
+const SearchBar: FC = () => {
+  const searchTest = useSelector((state: TReduxReducers) => state.rootReducer.searchData);
+  const [dipslaySeatchTest, setDisplaySetTest] = useState('');
+  const dispatch = useDispatch();
+  const onSearchHandler = (search: string) => {
     dispatch({
       type: 'ADD_SEARCH_DATA',
-      value: val,
+      value: search,
     });
-  },
-});
-export default connect(mapStateToProps, mapDispatch)(SearchBar);
+  };
+  useEffect(() => {
+    setDisplaySetTest(searchTest);
+  }, [searchTest]);
+  return (
+    <div className="SearchBar">
+      <input
+        type="text"
+        placeholder="ENTER_SEARCH_PARAMETER"
+        onChange={(e) => {
+          setDisplaySetTest(e.currentTarget.value);
+        }}
+        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+          if (e.key === 'Enter') {
+            onSearchHandler!(dipslaySeatchTest);
+          }
+        }}
+        value={dipslaySeatchTest}
+      />
+      <button
+        onClick={() => {
+          onSearchHandler!(dipslaySeatchTest);
+        }}
+      >
+        SEARCH
+      </button>
+    </div>
+  );
+};
+export default SearchBar;
