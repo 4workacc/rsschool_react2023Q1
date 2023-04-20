@@ -9,9 +9,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { rickApi } from './redux/rtk/getRequest';
 import rootReduces from './redux/reducers/rootReduces';
-import { hydrate } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
-const router = createBrowserRouter([
+
+export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     rootReducer: rootReduces,
     [rickApi.reducerPath]: rickApi.reducer,
@@ -42,9 +43,8 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rickApi.middleware),
 });
 
-hydrate(
-  <Provider store={store}>
-    <RouterProvider router={router} />
-  </Provider>,
-  document.getElementById('root')
-);
+// createRoot(document.getElementById('root') as HTMLElement).render(  
+//   <Provider store = {store}>
+//    <RouterProvider router={router} />
+//   </Provider>
+// );
