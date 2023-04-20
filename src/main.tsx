@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import App from './components/App/App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -10,6 +9,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { rickApi } from './redux/rtk/getRequest';
 import rootReduces from './redux/reducers/rootReduces';
+import { hydrate } from 'react-dom';
 
 const router = createBrowserRouter([
   {
@@ -42,8 +42,9 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rickApi.middleware),
 });
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+hydrate(
   <Provider store={store}>
     <RouterProvider router={router} />
-  </Provider>
+  </Provider>,
+  document.getElementById('root')
 );
