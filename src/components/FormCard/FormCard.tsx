@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { TStorageData } from 'types';
+import { TFormCardData } from 'types';
 
 import './FormCard.scss';
 
-const FormCard: FC<TStorageData> = (data: TStorageData): React.ReactElement => {
+const FormCard: FC<TFormCardData> = (data: TFormCardData): React.ReactElement => {
   return (
     <div className="FormCard">
       <h1>{data.title}</h1>

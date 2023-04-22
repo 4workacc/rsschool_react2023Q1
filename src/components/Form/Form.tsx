@@ -1,10 +1,9 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import React from 'react';
 import './Form.scss';
-import FormCards from '../FormCards/FormCards';
 import Header from '../../components/Header/Header';
-import { TReduxReducers } from 'types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useFullStateDispatch, useFullStateSelector } from '../../redux/store';
+import { actions as formAction } from '../../redux/reducers/formReducer';
 
 type Inputs = {
   title: string;
@@ -17,6 +16,9 @@ type Inputs = {
 };
 
 export default function App() {
+  const formCards = useFullStateSelector((state) => state.formReducer.formCards);
+  const dispatch = useFullStateDispatch();
+
   const {
     register,
     handleSubmit,
@@ -24,23 +26,22 @@ export default function App() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const cardsData = useSelector((state: TReduxReducers) => state.rootReducer.formData);
-  const dispatch = useDispatch();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    dispatch({
-      type: 'ADD_FORM_CARD',
-      cardData: {
-        id: cardsData ? cardsData.length + 1 : 0,
-        title: data.title,
-        // img: data.file,
-        img: '1',
-        price: '' + data.price,
-        date: data.date,
-        color: data.color,
-        isAvalible: data.check,
-        boxSize: data.radio,
-      },
-    });
+  const onSubmit: SubmitHandler<Inputs> = (data) => {   
+    dispatch(
+      formAction.setFormCards({
+        formCards: [...formCards, {
+          id: formCards.length + 1,          
+          title: data.title,
+          // img: data.file,
+          img: '1',
+          price: '' + data.price,
+          date: data.date,
+          color: data.color,
+          isAvalible: data.check,
+          boxSize: data.radio,
+        }]
+      })
+    )
     alert('Card is created!');
     reset({
       title: '',
@@ -54,7 +55,7 @@ export default function App() {
   };
   return (
     <div>
-      <Header page="Form" />
+      <Header />
       <form className="Form_Header" onSubmit={handleSubmit(onSubmit)}>
         <input
           id="Form_textInput"
@@ -94,8 +95,7 @@ export default function App() {
         </select>
         <input type="file" {...register('file', { required: true })} />
         <input type="submit" />
-      </form>
-      <div className="Form_Cards"> {cardsData && <FormCards />} </div>
+      </form>   
     </div>
   );
 }

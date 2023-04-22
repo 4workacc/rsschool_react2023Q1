@@ -7,7 +7,7 @@ describe('CardList test', () => {
   let wrapper: RenderResult;
 
   beforeEach(() => {
-    wrapper = render(<CardList cards={[]} sendDataToParent={() => {}} />);
+    wrapper = render(<CardList cards={[]} />);
   });
   test('Should render component', () => {
     expect(wrapper).toBeTruthy();

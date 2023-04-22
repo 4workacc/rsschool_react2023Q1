@@ -1,43 +1,25 @@
 import React, { FC, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { TReduxReducers } from 'types';
 import './SearchBar.scss';
+import { useFullStateDispatch, useFullStateSelector } from '../../redux/store';
+import { actions as searchAction } from '../../redux/reducers/searchReducer';
+
+interface ISearchData {
+  searchValue: string;
+}
 
 const SearchBar: FC = () => {
-  const searchTest = useSelector((state: TReduxReducers) => state.rootReducer.searchData);
-  const [dipslaySeatchTest, setDisplaySetTest] = useState('');
-  const dispatch = useDispatch();
-  const onSearchHandler = (search: string) => {
-    dispatch({
-      type: 'ADD_SEARCH_DATA',
-      value: search,
-    });
-  };
-  useEffect(() => {
-    setDisplaySetTest(searchTest);
-  }, [searchTest]);
+  const searchValue = useFullStateSelector((state) => state.searchReducer.searchValue)
+  const dispatch = useFullStateDispatch();
+
+  const onSubmit = (data: ISearchData) => {
+    if (data.searchValue) {
+      dispatch(searchAction.setSearchValue({ searchValue: 'newValue' }));
+    };
+  }
   return (
     <div className="SearchBar">
-      <input
-        type="text"
-        placeholder="ENTER_SEARCH_PARAMETER"
-        onChange={(e) => {
-          setDisplaySetTest(e.currentTarget.value);
-        }}
-        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-          if (e.key === 'Enter') {
-            onSearchHandler!(dipslaySeatchTest);
-          }
-        }}
-        value={dipslaySeatchTest}
-      />
-      <button
-        onClick={() => {
-          onSearchHandler!(dipslaySeatchTest);
-        }}
-      >
-        SEARCH
-      </button>
+      <h1>{`SearchValue: ${searchValue}`}</h1>
+      <button onClick={()=>onSubmit({searchValue: '123'})}>Submit</button>
     </div>
   );
 };

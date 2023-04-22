@@ -1,15 +1,16 @@
-import React, { ReactElement } from 'react';
+import React, { FC, ReactElement } from 'react';
 
 import './FormCards.scss';
-import { TReduxReducers, TStorageData } from 'types';
-import { useSelector } from 'react-redux';
+import { TFormCardData } from 'types';
 import FormCard from '../FormCard/FormCard';
+import { useFullStateSelector } from '../../redux/store';
 
-const FormCards = (): ReactElement => {
-  const cards: TStorageData[] = useSelector((state: TReduxReducers) => state.rootReducer.formData);
+
+const FormCards: FC = () => {
+  const formCards: TFormCardData[] = useFullStateSelector((state) => state.formReducer.formCards);
   return (
     <div className="FormCards">
-      {cards.map((card: TStorageData) => {
+      {formCards.map((card: TFormCardData) => {
         return (
           <FormCard
             title={card.title!}
@@ -22,7 +23,8 @@ const FormCards = (): ReactElement => {
             boxSize={card.boxSize}
           />
         );
-      })}
+      })}      
+      {formCards!.length === 0 && <h1>noCard Data</h1>}
     </div>
   );
 };

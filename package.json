@@ -10,7 +10,7 @@
     "eslint": "npx eslint src/**/*.ts",
     "test": "vitest",
     "test-coverage": "vitest --coverage",
-    "server": "ts-node --esm ./src/server/server.ts"
+    "server": "ts-node --esm server.ts"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
