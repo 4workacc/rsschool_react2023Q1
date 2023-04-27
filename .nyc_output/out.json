@@ -1,1 +1,245 @@
-{}
+{
+  "C:/dev/rsschool_react2023Q1/src/App.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/App.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/main.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/main.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/server-client.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/server-client.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/server-server.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/server-server.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/Layout.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/Layout.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/BigCard/BigCard.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/BigCard/BigCard.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/BigCard/BigCard.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/BigCard/BigCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/Card/Card.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/Card/Card.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/Card/Card.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/Card/Card.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/CardList/CardList.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/CardList/CardList.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/CardList/CardList.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/CardList/CardList.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/Form/Form.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/Form/Form.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/Form/Form.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/Form/Form.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/FormCard/FormCard.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/FormCard/FormCard.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/FormCards/FormCards.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/FormCards/FormCards.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/Header/Header.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/Header/Header.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/Header/Header.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/Header/Header.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/SearchBar/SearchBar.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/SearchBar/SearchBar.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/components/SearchBar/SearchBar.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/components/SearchBar/SearchBar.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/AboutUs/AboutUs.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/AboutUs/AboutUs.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/AboutUs/index.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/AboutUs/index.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/FormPage/FormPage.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/FormPage/FormPage.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/FormPage/FormPage.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/FormPage/FormPage.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/MainPage/index.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/MainPage/index.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/MainPage/MainPage.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/MainPage/MainPage.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/NotFound404/index.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/NotFound404/index.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "C:/dev/rsschool_react2023Q1/src/Pages/NotFound404/NotFound404.test.tsx": {
+    "path": "C:/dev/rsschool_react2023Q1/src/Pages/NotFound404/NotFound404.test.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  }
+}

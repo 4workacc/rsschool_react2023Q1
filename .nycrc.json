@@ -1,3 +1,8 @@
 {
-    "reporters": ["json"]
+    "all": true,
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "report-dir": "coverage",
+    "temp-dir": ".nyc_output",
+    "include": ["src/"],
+    "exclude": ["test", "src"]
 }
