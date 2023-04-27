@@ -13,10 +13,17 @@ import istanbul from 'vite-plugin-istanbul';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), istanbul({
-    cypress: true,
-    requireEnv: false,
-  })],
+  build: {
+    sourcemap: true
+  },
+  plugins: [react(), 
+    istanbul({
+      include: 'src/*',
+      exclude: ['node_modules', 'coverage/'],
+      extension: [ '.js', '.ts', '.tsx' ],
+      requireEnv: false,
+    }),
+],
   server: {
     watch: {
       ignored: ['**/coverage/**'],
