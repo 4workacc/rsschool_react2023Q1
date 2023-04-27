@@ -17,6 +17,11 @@ export default defineConfig({
     cypress: true,
     requireEnv: false,
   })],
+  server: {
+    watch: {
+      ignored: ['**/coverage/**'],
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom', 
