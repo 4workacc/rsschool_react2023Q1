@@ -1,2 +1,1 @@
-module.exports = (on, config) => {
-    on('task', require('@cypress/code-coverage/task'))}
+import '@cypress/code-coverage/support'
