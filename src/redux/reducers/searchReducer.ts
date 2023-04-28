@@ -4,11 +4,11 @@ import { TReduxSearch } from '../../types';
 export const searchSlice = createSlice({
   name: 'search',
   initialState: {
-    searchValue: '',    
+    searchValue: '',
   } as TReduxSearch,
   reducers: {
     setSearchValue: (state, { payload: { searchValue } }: PayloadAction<TReduxSearch>) => {
-      (state.searchValue = searchValue);
+      state.searchValue = searchValue;
     },
   },
 });

@@ -7,11 +7,11 @@ import { store } from './redux/store';
 
 const serverClient = () => {
   ReactDOM.hydrateRoot(
-    document.getElementById('root') as HTMLElement,  
+    document.getElementById('root') as HTMLElement,
     <Provider store={store}>
-      <BrowserRouter>  
-          <App />   
-      </BrowserRouter> 
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   );
 };

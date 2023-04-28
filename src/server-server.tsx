@@ -6,12 +6,12 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
 export const render = (path: string, options: RenderToPipeableStreamOptions) => {
-  return renderToPipeableStream(  
+  return renderToPipeableStream(
     <Provider store={store}>
-    <StaticRouter location={path}>
+      <StaticRouter location={path}>
         <App />
-    </StaticRouter>
-    </Provider>
-    ,options
+      </StaticRouter>
+    </Provider>,
+    options
   );
 };

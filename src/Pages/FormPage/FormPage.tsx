@@ -1,17 +1,14 @@
 import './FormPage.scss';
-import Header from '../../components/Header/Header';
 import React from 'react';
 import FormCards from '../../components/FormCards/FormCards';
 import Form from '../../components/Form/Form';
 const FormPage = () => {
-  
   return (
-    <div>         
+    <div>
       <Form />
       <FormCards />
     </div>
   );
-}
+};
 
 export default FormPage;
-

@@ -13,11 +13,13 @@ const Card: FC<TProps> = ({ data }) => {
   return (
     <div
       className="Card"
-      onClick={() => { 
-        dispatch(bigCardAction.setBigCardValue({
-          isShow: true,
-          cardData: data
-        }))
+      onClick={() => {
+        dispatch(
+          bigCardAction.setBigCardValue({
+            isShow: true,
+            cardData: data,
+          })
+        );
       }}
     >
       <h2>{`Name: ${data.name}`}</h2>
@@ -29,6 +31,6 @@ const Card: FC<TProps> = ({ data }) => {
       <h5>{`created: ${data.created}`}</h5>
     </div>
   );
-}
+};
 
 export default Card;

@@ -1,10 +1,9 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC } from 'react';
 
 import './FormCards.scss';
 import { TFormCardData } from 'types';
 import FormCard from '../FormCard/FormCard';
 import { useFullStateSelector } from '../../redux/store';
-
 
 const FormCards: FC = () => {
   const formCards: TFormCardData[] = useFullStateSelector((state) => state.formReducer.formCards);
@@ -23,7 +22,7 @@ const FormCards: FC = () => {
             boxSize={card.boxSize}
           />
         );
-      })}      
+      })}
       {formCards!.length === 0 && <h1>noCard Data</h1>}
     </div>
   );

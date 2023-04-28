@@ -26,22 +26,25 @@ export default function App() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {   
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
     dispatch(
       formAction.setFormCards({
-        formCards: [...formCards, {
-          id: formCards.length + 1,          
-          title: data.title,
-          // img: data.file,
-          img: '1',
-          price: '' + data.price,
-          date: data.date,
-          color: data.color,
-          isAvalible: data.check,
-          boxSize: data.radio,
-        }]
+        formCards: [
+          ...formCards,
+          {
+            id: formCards.length + 1,
+            title: data.title,
+            // img: data.file,
+            img: '1',
+            price: '' + data.price,
+            date: data.date,
+            color: data.color,
+            isAvalible: data.check,
+            boxSize: data.radio,
+          },
+        ],
       })
-    )
+    );
     alert('Card is created!');
     reset({
       title: '',
@@ -95,7 +98,7 @@ export default function App() {
         </select>
         <input type="file" {...register('file', { required: true })} />
         <input type="submit" />
-      </form>   
+      </form>
     </div>
   );
 }

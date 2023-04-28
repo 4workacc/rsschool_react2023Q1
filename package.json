@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "eslint": "npx eslint src/**/*.ts",
+    "eslint": "npx eslint src/**/*.tsx",
     "test": "vitest",
     "test-coverage": "vitest --coverage",
     "server": "ts-node --esm server.ts",

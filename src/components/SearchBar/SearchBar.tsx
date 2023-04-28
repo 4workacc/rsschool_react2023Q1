@@ -8,26 +8,29 @@ interface ISearchData {
 }
 
 const SearchBar: FC = () => {
-  const searchValue = useFullStateSelector((state) => state.searchReducer.searchValue)
+  const searchValue = useFullStateSelector((state) => state.searchReducer.searchValue);
   const dispatch = useFullStateDispatch();
   const [displayValue, setDisplayValue] = useState<string>('');
-  useEffect(()=>{
+  useEffect(() => {
     setDisplayValue(searchValue);
   }, [searchValue]);
-  
+
   const onSubmit = (data: ISearchData) => {
     if (data.searchValue) {
       dispatch(searchAction.setSearchValue({ searchValue: data.searchValue }));
-    };
-  }
+    }
+  };
   return (
     <div className="SearchBar">
-      <input 
+      <input
         type="text"
-        placeholder='Search value'
-        value={`${displayValue}`} 
-        onChange={(e)=>{setDisplayValue(e.currentTarget.value)}}/>
-      <button onClick={()=>onSubmit({searchValue: displayValue})}>Submit</button>
+        placeholder="Search value"
+        value={`${displayValue}`}
+        onChange={(e) => {
+          setDisplayValue(e.currentTarget.value);
+        }}
+      />
+      <button onClick={() => onSubmit({ searchValue: displayValue })}>Submit</button>
     </div>
   );
 };

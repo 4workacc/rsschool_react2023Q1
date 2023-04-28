@@ -10,16 +10,19 @@ type TProps = {
   cardData?: TRickAndMortyCharacter;
 };
 
-
 const BigCard: FC<TProps> = (): React.ReactElement => {
   const dispatch = useFullStateDispatch();
   const bigCardData = useFullStateSelector((state) => state.cardReducer.cardData!);
- 
+
   return (
     <div className="BigCard">
-      <button onClick={()=>{
-        dispatch(bigCardAction.hideBigCard())
-      }}>X</button>
+      <button
+        onClick={() => {
+          dispatch(bigCardAction.hideBigCard());
+        }}
+      >
+        X
+      </button>
       <h1>{bigCardData.name}</h1>
       <img src={bigCardData.image} className="Card_img" title={bigCardData.image} />
       <h5>{`Status: ${bigCardData.status}`}</h5>

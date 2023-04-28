@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { TRequestAnswer, TRickAndMortyCharacter } from 'types';
+import { TRequestAnswer } from 'types';
 
 export const rickApi = createApi({
   reducerPath: 'rickApi',

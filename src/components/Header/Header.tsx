@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import './Header.scss';
 
 const Header: FC = (): React.ReactElement => {
- 
   return (
-    <div className="Header">    
+    <div className="Header">
       <ul>
         <li key={0}>
           <Link to="/">HomePage</Link>
@@ -21,4 +20,5 @@ const Header: FC = (): React.ReactElement => {
     </div>
   );
 };
+
 export default Header;
