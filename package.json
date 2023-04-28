@@ -11,7 +11,7 @@
     "test": "vitest",
     "test-coverage": "vitest --coverage",
     "server": "ts-node --esm server.ts",
-    "cypress:report": "npx nyc instrument --compact=false src instrumented && npx cypress run --e2e && npx nyc report && npx nyc report --reporter=text-summary ",
+    "cypress:report": "npx cypress run --e2e && npx nyc report && npx nyc report --reporter=text-summary ",
     "nyc": "npx nyc instrument --compact=false src instrumented",
     "nyc:test": "npx nyc report --check-coverage true --lines 100"
   },

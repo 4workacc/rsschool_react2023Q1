@@ -1,9 +1,5 @@
-describe('template spec', () => {
+describe('template NotFound', () => {
   it('passes', () => {
-    cy.visit('http://localhost:3000')
-  });
-  it('submit button', () => {
-    cy.visit('http://localhost:3000');
-    cy.get('h1').should('have.value', '');
+    cy.visit('http://localhost:3000/asd')
   });
 })

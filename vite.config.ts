@@ -21,7 +21,7 @@ export default defineConfig({
       include: 'src/*',
       exclude: ['node_modules', 'coverage/'],
       extension: [ '.js', '.ts', '.tsx' ],
-      requireEnv: false,
+      requireEnv: true,
     }),
 ],
   server: {
