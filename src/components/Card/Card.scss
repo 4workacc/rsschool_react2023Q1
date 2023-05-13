@@ -1,0 +1,25 @@
+.Card {
+    width: 200px;
+    height: 500px;
+    
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: space-between;   
+
+    &:hover {
+        box-shadow: 0 0 1px 1px lightblue;
+    }
+}
+.Form_hidden_err {
+    color: red;
+    display: none;
+}
+.Form_err{
+    color: red;
+    display: block;
+}
+.Card_img{
+    width: 150px;
+    height: 150px;    
+}
